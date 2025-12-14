@@ -1,10 +1,13 @@
 import os
+from dotenv import load_dotenv
 from typing_extensions import TypedDict, Annotated
 from typing import List
 
 from langchain_ollama import ChatOllama
 from langgraph.graph import StateGraph, END
 from langgraph.graph.message import add_messages
+
+load_dotenv()
 
 # --- 1. Define the Agent State ---
 # The state is a TypedDict that holds the conversation history.
@@ -51,9 +54,9 @@ graph_builder.add_edge("llm_node", END)
 # Compile the graph into an executable workflow
 app = graph_builder.compile()
 
-# Display the graph
-from IPython.display import Image, display
-display(Image(app.get_graph().draw_mermaid_png()))
+# # Display the graph
+# from IPython.display import Image, display
+# display(Image(app.get_graph().draw_mermaid_png()))
 
 # --- 5. Run the Chatbot ---
 
