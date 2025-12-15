@@ -8,3 +8,16 @@ In order to install the dependencies in a virtual environment, follow the below 
 python3 -m venv venv
 pip install -r requirements.txt
 ```
+
+In order to use ollama3
+
+```
+curl -fsSL https://ollama.com/install.sh | sh
+ollama pull gemma3
+```
+
+In order to run the script.
+
+```
+python tourist-destinations-shortlist.py
+```
